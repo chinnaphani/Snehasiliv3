@@ -1,0 +1,65 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+            <!-- Administration Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Administration</a>
+             <ul class="nav-dropdown-items">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'addmember' %}">
+                         <i class="fa fa-plus-circle"></i>Add Member</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="#">
+                         <i class="fa fa-plus-circle"></i>Delete Member</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- Administration Section END -->
+
+           <!-- Membership Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>MemberShip</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'payment' %}">
+                      <i class="fa fa-plus-circle"></i>Receipt Entry</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">
+                      <i class="fa fa-plus-circle"></i>View Payments</a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- Membership Section END -->
+
+           <!-- Loan Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Loan</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-plus-circle"></i>Loan Entry</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-list"></i>Loan Installment View</a>
+                </li>
+            </ul>
+          </li>
+          <!-- LoanSection END -->
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

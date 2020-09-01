@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <div class="card">
+    <div class="card-header">Member Registration Form</div>
+    <div class="card-body">
+      <form action="" method="post" enctype="multipart/form-data" id="TeacherRegistrationForm" data-upazilla-url="">
+
+        <div class="card">
+          <div class="card-header">Personal Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ form.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Address Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ address_forms.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Job Information</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ job_form.as_p }}
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Family Particulars</div>
+          <div class="card-body">
+            {% csrf_token %}
+          <table class="table table-bordered" id="dynamicTable">
+            <tbody><tr>
+                <th>Name</th>
+                <th>Relationship</th>
+                <th>Age</th>
+                <th>Education</th>
+                <th>Occupation</th>
+                <th>Income</th>
+                <th>Marital status</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><input type="text" name="addmore[0][name]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][relationship]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][age]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][education]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][occupation]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][income]" class="form-control"></td>
+                <td><input type="text" name="addmore[0][maritalstatus]" class="form-control"></td>
+                <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+            </tr>
+        </tbody></table>
+
+
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Introducers</div>
+          <div class="card-body">
+            {% csrf_token %}
+            {{ experience_form.as_p }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+<script type="text/javascript">
+    var maxField =6;
+    var i = 0;
+    $("#add").click(function(){
+        if (x <maxField) {
+            ++i;
+            $("#dynamicTable").append('<tr><td><input type="text" name="addmore[' + i + '][name]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][relation]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][age]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][education]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][occupation]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][income]" class="form-control" /></td><td><input type="text" name="addmore[' + i + '][martitalstatus]" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+        }
+        });
+    $(document).on('click', '.remove-tr', function(){
+         $(this).parents('tr').remove();
+    });
+</script>
+
+{% endblock %}
+

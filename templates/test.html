@@ -1,0 +1,45 @@
+<head>
+    <title>Add/remove multiple input fields dynamically with Jquery Laravel 5.8</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+
+<table class="table table-bordered" id="dynamicTable">
+            <tbody><tr>
+                <th>Name</th>
+                <th>Relationship</th>
+                <th>Age</th>
+                <th>Education</th>
+                <th>Occupation</th>
+                <th>Income</th>
+                <th>Marital status</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td><input type="text" name="addmore[0][name]" placeholder="Enter your Name" class="form-control"></td>
+                <td><input type="text" name="addmore[0][relationship]" placeholder="Enter your Qty" class="form-control"></td>
+                <td><input type="text" name="addmore[0][age]" placeholder="Enter your Price" class="form-control"></td>
+                <td><input type="text" name="addmore[0][education]" placeholder="Enter your Price" class="form-control"></td>
+                <td><input type="text" name="addmore[0][occupation]" placeholder="Enter your Price" class="form-control"></td>
+                <td><input type="text" name="addmore[0][income]" placeholder="Enter your Price" class="form-control"></td>
+                <td><input type="text" name="addmore[0][maritalstatus]" placeholder="Enter your Price" class="form-control"></td>
+                <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+            </tr>
+        </tbody></table>
+
+<script type="text/javascript">
+
+    var i = 0;
+
+    $("#add").click(function(){
+
+        ++i;
+
+        $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][name]" placeholder="Enter your Name" class="form-control" /></td><td><input type="text" name="addmore['+i+'][relation]" placeholder="Enter your Relationship" class="form-control" /></td><td><input type="text" name="addmore['+i+'][age]" placeholder="Enter your age" class="form-control" /></td><td><input type="text" name="addmore['+i+'][education]" placeholder="Enter your education" class="form-control" /></td><td><input type="text" name="addmore['+i+'][occupation]" placeholder="Enter your occupation" class="form-control" /></td><td><input type="text" name="addmore['+i+'][income]" placeholder="Enter your income" class="form-control" /></td><td><input type="text" name="addmore['+i+'][martitalstatus]" placeholder="Enter your Marital status" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+    });
+
+    $(document).on('click', '.remove-tr', function(){
+         $(this).parents('tr').remove();
+    });
+
+</script>
